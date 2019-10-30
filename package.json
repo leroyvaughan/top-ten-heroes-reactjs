@@ -1,0 +1,30 @@
+{
+  "name": "top-ten-heroes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --use_strict index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "~4.2.4 || 10.x"
+  },
+  "keywords": [
+    "reactjs",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Gary LeRoy Vaughan Jr",
+  "license": "Mine",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7",
+    "nodemon": "^1.19.4",
+    "path": "^0.12.7",
+    "guid": "0.0.12"
+  }
+}
