@@ -7,12 +7,16 @@ import Blurb from './Blurb';
 
 const Container = styled.div.attrs({
     className: 'container',
-})``
+})`
+    overflow: hidden;
+`
 
 const Nav = styled.nav.attrs({
     className: 'navbar navbar-expand-lg navbar-dark bg-dark',
 })`
     margin-bottom: 20 px;
+    position: relative;
+    z-index: 100;
 `
 
 class NavBar extends Component {

@@ -1,27 +1,48 @@
 import React, { Component } from 'react';
 import Coverflow from 'react-coverflow-mod';
 import styled from 'styled-components';
-import $ from 'jquery';
+import { Link } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 
 const Title = styled.h1.attrs({
     className: 'h1',
 })``
 
+const Blurb = styled.div`
+    display: flex;
+    justify-content: center;    
+`
+
+const Label = styled.label`
+    color: #383838;
+    margin: 5px;
+`
+
 const Wrapper = styled.div`
     padding: 0 40px 40px 40px;
 `
 
 const Legend = styled.p`
-    border-bottom: 1px solid #ccc;
+    background-color: #383838;
     color: #fffdfd;
     font-size: 11px;
     padding-bottom: 2px;
     text-align: center;
 `
 
+const P = styled.p`
+    color: #fff;
+    font-size: 12px;
+    font-style: italic;
+    margin: 0px;
+`
 
-
+const Center = styled.p`
+    color: #383838;
+    position: relative;
+    text-align: center;
+`
 
 //#########################  FOR MY HERO UPDATE PAGE   #########################
 
@@ -70,7 +91,8 @@ class HeroesList extends Component {
             this.setState({
                 heroes: data.data,
                 isLoading: false,
-                showCoverflow: true
+                showCoverflow: true,
+                doTransitions: true
             });
         }
 
@@ -90,56 +112,100 @@ class HeroesList extends Component {
 
         return (
             <Wrapper>
-                <Coverflow
-                    width={450}
-                    height={300}
-                    displayQuantityOfSide={2}
-                    navigation={false}
-                    enableHeading={false}
-                    infiniteScroll={true}   //not working...
-                    clickable={true}
-                    active={5}
+                <CSSTransition
+                    in={this.state.doTransitions}
+                    timeout={0}
+                    classNames="coverflow-transition"
+                    unmountOnExit
+                    appear
                 >
+                    <Coverflow
+                        id="coverflow"
+                        width={450}
+                        height={300}
+                        displayQuantityOfSide={2}
+                        navigation={false}
+                        enableHeading={false}
+                        infiniteScroll={true}   //not working...
+                        clickable={true}
+                        active={4}
+                    >
 
-                    {
-                        heroes.map((hero, ix) => {
-                            let imgSrc = "/img/" + hero.image;
-                            let url = "/hero/display/" + hero.rank;
-                            let alt = hero.name + " is my #" + hero.rank + " hero!";
+                        {
+                            heroes.map((hero, ix) => {
+                                let imgSrc = "/img/" + hero.image;
+                                let url = "/hero/display/" + hero.rank;
+                                let alt = hero.name + " is my #" + hero.rank + " hero!";
 
-                            return <div
-                                key={ix}
-                                data-action={url}
-                                className="heroImg">
-                                <img
+                                return <div
                                     key={ix}
-                                    src={imgSrc}
-                                    title={alt}
-                                    alt={alt}
-                                    style={{ display: 'block', width: '100%' }}
-                                />
-                                <Legend>{hero.name}</Legend>
-                            </div>
-                        })
-                    }
+                                    data-action={url}
+                                    className="heroImg">
+                                    <img
+                                        key={ix}
+                                        src={imgSrc}
+                                        title={alt}
+                                        alt={alt}
+                                        style={{ display: 'block', width: '100%' }}
+                                    />
+                                    <Legend>{hero.name}</Legend>
+                                </div>
+                            })
+                        }
 
-                </Coverflow>
+                    </Coverflow>
+                </CSSTransition>
+
+                <Blurb>
+                    <div>
+                        <CSSTransition
+                            in={this.state.doTransitions}
+                            timeout={300}
+                            classNames="text-transition"
+                            unmountOnExit
+                            appear>
+                            <P>It appears that NodeJs and ReactJs are like Peanut Butter and Jelly.</P>
+                        </CSSTransition>
+
+                        <CSSTransition
+                            in={this.state.doTransitions}
+                            timeout={700}
+                            classNames="text-transition"
+                            unmountOnExit
+                            appear>
+                            <P>So, because I know NodeJs pretty well, I decided to do some ReactJs...</P>
+                        </CSSTransition>
+
+                        <CSSTransition
+                            in={this.state.doTransitions}
+                            timeout={1000}
+                            classNames="text-transition"
+                            unmountOnExit
+                            appear>
+                            <Center>After all, who doesn't like PBnJ?</Center>
+                        </CSSTransition>
+
+                    </div>
+                </Blurb >
+
+                <CSSTransition
+                    in={this.state.doTransitions}
+                    timeout={1221}
+                    classNames="text-transition"
+                    unmountOnExit
+                    appear>
+                    <div>
+                        <Label>view the code on github:</Label>
+                        <Link
+                            to="https://github.com/leroyvaughan/top-ten-heroes-reactjs">here</Link>
+                    </div>
+                </CSSTransition>
 
 
-            </Wrapper>
+            </Wrapper >
         )
     }
 }
-
-
-
-$(function () {
-
-
-    $("#root .heroImg").on("click", function () {
-        console.log("test");
-    })
-});
 
 
 export default HeroesList

@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { CSSTransition } from 'react-transition-group';
+
 // import styled from 'styled-components'
 
 
@@ -15,14 +18,33 @@ import { Link } from 'react-router-dom'
 //     className: 'collpase navbar-collapse',
 // })``
 
+const NavLink = styled.a.attrs({
+    className: "navbar-brand",
+    id: "appTitle",
+    href: "/",
+})`
+    position: relative;
+    z-index: 0;
+`
+
 
 class Links extends Component {
     render() {
         return (
             <React.Fragment>
-                <Link to="/" className="navbar-brand" id="appTitle">
-                    My Top Ten Heroes List
-                </Link>
+
+                <CSSTransition
+                    in={true}
+                    timeout={0}
+                    classNames="siteTitle-transition"
+                    unmountOnExit
+                    appear>
+
+                    <NavLink>
+                        My Top Ten Heroes List
+                    </NavLink>
+
+                </CSSTransition>
                 {/* <Collapse>
                     <List>
                         <Item>
