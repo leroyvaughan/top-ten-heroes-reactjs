@@ -7,7 +7,7 @@
     "jquery": "^3.4.1",
     "radium": "^0.25.1",
     "react": "^16.11.0",
-    "react-coverflow-mod": "file:../../react-coverflow-mod",
+    "react-coverflow-mod": "0.3.21",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",

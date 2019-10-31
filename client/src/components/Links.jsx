@@ -21,7 +21,7 @@ class Links extends Component {
         return (
             <React.Fragment>
                 <Link to="/" className="navbar-brand" id="appTitle">
-                    My Top Ten Heroes
+                    My Top Ten Heroes List
                 </Link>
                 {/* <Collapse>
                     <List>
