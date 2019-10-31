@@ -196,8 +196,7 @@ class HeroesList extends Component {
                     appear>
                     <div>
                         <Label>view the code on github:</Label>
-                        <Link
-                            to="https://github.com/leroyvaughan/top-ten-heroes-reactjs">here</Link>
+                        <a href="https://github.com/leroyvaughan/top-ten-heroes-reactjs">here</a>
                     </div>
                 </CSSTransition>
 
