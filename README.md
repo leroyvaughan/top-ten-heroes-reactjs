@@ -26,7 +26,7 @@ This is another redo of My Top Ten Heroes, which was originally done with Angula
 
 
 Here's the running app online:
-https://sleepy-thicket-11929.herokuapp.com/
+https://top-ten-heroes.herokuapp.com/
 
 
 Thanks for checking me out!!!
