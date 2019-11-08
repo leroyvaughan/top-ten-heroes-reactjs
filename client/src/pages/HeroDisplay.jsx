@@ -29,6 +29,7 @@ const HeroDescription = styled.div`
 const HeroImg = styled.img`
     border-radius: 4px;
     margin: 21px 0;
+    max-width: 90%;
     position: relative;
 `
 
